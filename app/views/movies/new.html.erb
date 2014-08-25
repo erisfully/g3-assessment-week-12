@@ -1,5 +1,12 @@
 <%= form_for @movie do |f| %>
 
+  <% if @movie.errors.any? %>
+    <div class="error" >
+    Name <%= @movie.errors[:name].first %><br>
+    Year <%= @movie.errors[:year].first %><br>
+    Year <%= @movie.errors[:year].last%>
+    </div>
+  <% end %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
   <%= f.label :year %><br>

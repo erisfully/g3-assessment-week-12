@@ -21,5 +21,13 @@ feature 'homepage' do
     expect(page).to have_content '2006'
     expect(page).to have_content 'Stuff happens'
 
+    click_on 'Add Movie'
+    fill_in 'Name', with: ''
+    fill_in 'Year', with: ''
+    click_on 'Create Movie'
+
+    expect(page).to have_content "Name can't be blank"
+    expect(page).to have_content "Year can't be blank"
+    expect(page).to have_content "Year is not a number"
   end
 end
