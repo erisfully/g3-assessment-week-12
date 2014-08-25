@@ -35,8 +35,7 @@ feature 'homepage' do
     fill_in 'Synopsis', with: 'Stealing cars and such'
     click_on 'Create Movie'
 
-    expect(page).to have_content "Gone in 60 Seconds (1999) Stealing cars and such The Wickerman (2006)"
-    expect(page).to_not have_content "The Wickerman (2006) Stuff happens Gone in 60 Seconds (1999) Stealing cars and such"
-
+    expect(page).to have_content "The Wickerman (2006) Stuff happens Gone in 60 Seconds (1999) Stealing cars and such"
+    expect(page).to_not have_content "Gone in 60 Seconds (1999) Stealing cars and such The Wickerman (2006)"
   end
 end
