@@ -29,5 +29,14 @@ feature 'homepage' do
     expect(page).to have_content "Name can't be blank"
     expect(page).to have_content "Year can't be blank"
     expect(page).to have_content "Year is not a number"
+
+    fill_in 'Name', with: 'Gone in 60 Seconds'
+    fill_in 'Year', with: '1999'
+    fill_in 'Synopsis', with: 'Stealing cars and such'
+    click_on 'Create Movie'
+
+    expect(page).to have_content "Gone in 60 Seconds (1999) Stealing cars and such The Wickerman (2006)"
+    expect(page).to_not have_content "The Wickerman (2006) Stuff happens Gone in 60 Seconds (1999) Stealing cars and such"
+
   end
 end
