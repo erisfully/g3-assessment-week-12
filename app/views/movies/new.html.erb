@@ -2,9 +2,9 @@
 
   <% if @movie.errors.any? %>
     <div class="error" >
-    Name <%= @movie.errors[:name].first %><br>
-    Year <%= @movie.errors[:year].first %><br>
-    Year <%= @movie.errors[:year].last%>
+      <% @movie.errors.full_messages.each do |error| %><br>
+        <%= error %>
+      <% end %>
     </div>
   <% end %>
   <%= f.label :name %><br>
